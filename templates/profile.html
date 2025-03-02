@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}Профиль{% endblock %}
+
+{% block content %}
+    <h2>Профиль {{ user.username }}</h2>
+    <p>Email: {{ user.email }}</p>
+    <p>Телефон: {{ user.phone }}</p>
+    {% if user.is_seller %}
+        <p><a href="{% url 'seller_dashboard' %}">Перейти в панель продавца</a></p>
+    {% endif %}
+{% endblock %}

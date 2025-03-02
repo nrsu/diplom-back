@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}Каталог товаров{% endblock %}
+
+{% block content %}
+    <h2>Каталог товаров</h2>
+    {% for product in products %}
+        <div>
+            {% if product.image %}
+                <img src="{{ product.image.url }}" width="100">
+            {% endif %}
+            <h3>{{ product.name }}</h3>
+            <p>Цена: {{ product.price }} KZT</p>
+            <a href="{% url 'product_detail' product.id %}">Подробнее</a>
+            <a href="{% url 'add_to_cart' product.id %}">Добавить в корзину</a>
+        </div>
+    {% endfor %}
+{% endblock %}
